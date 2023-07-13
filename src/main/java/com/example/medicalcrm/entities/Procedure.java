@@ -1,8 +1,15 @@
-package entities;
+package com.example.medicalcrm.entities;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
 import java.util.Set;
 
+@Entity
+@Table(name = "procedures")
 public class Procedure extends BaseEntity {
 
     private String name;
@@ -12,6 +19,7 @@ public class Procedure extends BaseEntity {
     public Procedure() {
     }
 
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -20,6 +28,7 @@ public class Procedure extends BaseEntity {
         this.name = name;
     }
 
+    @Column(name = "price", precision = 10, scale = 2)
     public BigDecimal getPrice() {
         return price;
     }
@@ -28,6 +37,7 @@ public class Procedure extends BaseEntity {
         this.price = price;
     }
 
+    @ManyToMany
     public Set<Patient> getPatients() {
         return patients;
     }

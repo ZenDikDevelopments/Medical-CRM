@@ -1,7 +1,11 @@
-package entities;
+package com.example.medicalcrm.entities;
+
+import jakarta.persistence.*;
 
 import java.util.Set;
 
+@Entity
+@Table(name = "patients")
 public class Patient extends BaseEntity {
 
     private String firstName;
@@ -16,6 +20,7 @@ public class Patient extends BaseEntity {
     public Patient() {
     }
 
+    @Column(name = "first_name")
     public String getFirstName() {
         return firstName;
     }
@@ -24,6 +29,7 @@ public class Patient extends BaseEntity {
         this.firstName = firstName;
     }
 
+    @Column(name = "last_name")
     public String getLastName() {
         return lastName;
     }
@@ -32,6 +38,7 @@ public class Patient extends BaseEntity {
         this.lastName = lastName;
     }
 
+    @Column(name = "email")
     public String getEmail() {
         return email;
     }
@@ -40,6 +47,7 @@ public class Patient extends BaseEntity {
         this.email = email;
     }
 
+    @Column(name = "age")
     public Integer getAge() {
         return age;
     }
@@ -48,6 +56,7 @@ public class Patient extends BaseEntity {
         this.age = age;
     }
 
+    @Column(name = "phone_number")
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -56,6 +65,7 @@ public class Patient extends BaseEntity {
         this.phoneNumber = phoneNumber;
     }
 
+    @OneToOne
     public Address getAddress() {
         return address;
     }
@@ -64,6 +74,7 @@ public class Patient extends BaseEntity {
         this.address = address;
     }
 
+    @ManyToMany(mappedBy = "patients")
     public Set<Procedure> getProcedures() {
         return procedures;
     }
@@ -72,6 +83,7 @@ public class Patient extends BaseEntity {
         this.procedures = procedures;
     }
 
+    @Column(name = "additional_info", columnDefinition = "TEXT")
     public String getAdditionalInfo() {
         return additionalInfo;
     }
