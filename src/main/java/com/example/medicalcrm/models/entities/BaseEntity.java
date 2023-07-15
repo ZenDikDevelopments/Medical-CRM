@@ -1,4 +1,4 @@
-package com.example.medicalcrm.entities;
+package com.example.medicalcrm.models.entities;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
